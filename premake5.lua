@@ -1,15 +1,14 @@
 project "Spdlog"
 
-  kind "StaticLib"
+  kind "SharedLib"
   language "C++"
   cppdialect "C++11"
 
-  targetdir ("../bin/" .. outputdir .. "/%{prj.name}")
-  objdir ("../obj/" .. outputdir .. "/%{prj.name}")
+  targetdir ("../../bin/" .. outputdir .. "/%{prj.name}")
+  objdir ("../../obj/" .. outputdir .. "/%{prj.name}")
 
   files
   {
-    "",
     "src/*.cpp"
   }
 
@@ -28,23 +27,24 @@ project "Spdlog"
   }
 
 
-  ------------------------------------
-  -- CONFIGURATION SPECIFIC FILTERS --
-  ------------------------------------
-  filter "configurations:Debug"
-    defines
+  -------------------------------
+  -- COMPILER SPECIFIC FILTERS --
+  -------------------------------
+  filter "toolset:gcc"
+    buildoptions
     {
+       "-Wall",
+       "-Werror",
+       "-fvisibility=default", --internal-only linkage for building shared libraries
+       "-Wdouble-promotion" --warns about implicit float to double promotion (computation overhead)
     }
-    symbols "On"
-  filter "configurations:OptimizedDebug"
-    defines
+    links
     {
+       "pthread"
     }
-    symbols "On"
-    optimize "On" -- if this is even possible to do that way!
-  filter "configurations:Release"
-    defines
-    {
-    }
-    optimize "Full"
-    filter {} -- clean slate!
+
+  filter "toolset:clang"
+
+  filter "msc"
+
+  filter {}
