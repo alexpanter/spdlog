@@ -70,6 +70,7 @@ install_manifest.txt
 
 # idea
 .idea/
+<<<<<<< HEAD
 cmake-build-*/
 *.db
 *.ipch
@@ -81,3 +82,7 @@ cmake-build-*/
 *.tcl
 *.user
 *.sln
+=======
+
+# vscode
+.vscode/

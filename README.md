@@ -32,11 +32,17 @@ $ cmake .. && make -j
 * conan: `spdlog/[>=1.4.1]`
 * conda: `conda install -c conda-forge spdlog`
 
+## Platforms
+ * Linux, FreeBSD, Solaris, AIX
+ * Windows (vc 2013+, cygwin)
+ * Mac OSX (clang 3.5+)
+ * Android
 
 ## Features
-* Very fast (see [benchmarks](#benchmarks) below).
-* Headers only or compiled
-* Feature rich formatting, using the excellent [fmt](https://github.com/fmtlib/fmt) library.
+* Very fast - performance is the primary goal (see [benchmarks](#benchmarks) below).
+* Headers only, just copy and use.
+* Feature rich [call style](#usage-example) using the excellent [fmt](https://github.com/fmtlib/fmt) library.
+* Optional printf syntax support.
 * Asynchronous mode (optional)
 * [Custom](https://github.com/gabime/spdlog/wiki/3.-Custom-formatting) formatting.
 * Multi/Single threaded loggers.
