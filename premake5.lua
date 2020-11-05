@@ -19,7 +19,9 @@ project "Spdlog"
 
   defines
   {
-     "SPDLOG_COMPILED_LIB"
+     "SPDLOG_COMPILED_LIB",
+     "spdlog_EXPORTS",
+     "SPDLOG_SHARED_LIB"
   }
 
   links

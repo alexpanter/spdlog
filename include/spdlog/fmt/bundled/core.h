@@ -8,6 +8,11 @@
 #ifndef FMT_CORE_H_
 #define FMT_CORE_H_
 
+#ifdef YGG_PLATFORM_WINDOWS
+#pragma warning(push)
+#pragma warning(disable : 26495)
+#endif
+
 #include <cstdio>  // std::FILE
 #include <cstring>
 #include <functional>
@@ -1785,5 +1790,9 @@ inline void print(const S& format_str, Args&&... args) {
                    internal::make_args_checked<Args...>(format_str, args...));
 }
 FMT_END_NAMESPACE
+
+#ifdef YGG_PLATFORM_WINDOWS
+#pragma warning(pop)
+#endif
 
 #endif  // FMT_CORE_H_

@@ -3,6 +3,11 @@
 
 #pragma once
 
+#ifdef YGG_PLATFORM_WINDOWS
+#pragma warning(push)
+#pragma warning(disable : 26812)
+#endif
+
 #include <spdlog/common.h>
 #include <string>
 #include <unordered_map>
@@ -45,3 +50,7 @@ public:
 };
 } // namespace cfg
 } // namespace spdlog
+
+#ifdef YGG_PLATFORM_WINDOWS
+#pragma warning(pop)
+#endif

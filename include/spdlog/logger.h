@@ -3,6 +3,11 @@
 
 #pragma once
 
+#ifdef YGG_PLATFORM_WINDOWS
+#pragma warning(push)
+#pragma warning(disable : 4251)
+#endif
+
 // Thread safe logger (except for set_error_handler())
 // Has name, log level, vector of std::shared sink pointers and formatter
 // Upon each log write the logger:
@@ -389,4 +394,8 @@ void swap(logger &a, logger &b);
 
 #ifdef SPDLOG_HEADER_ONLY
 #include "logger-inl.h"
+#endif
+
+#ifdef YGG_PLATFORM_WINDOWS
+#pragma warning(pop)
 #endif

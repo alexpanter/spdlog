@@ -3,6 +3,11 @@
 
 #pragma once
 
+#ifdef YGG_PLATFORM_WINDOWS
+#pragma warning(push)
+#pragma warning(disable : 26812)
+#endif
+
 #include <atomic>
 #include <utility>
 // null, no cost dummy "mutex" and dummy "atomic" int
@@ -47,3 +52,7 @@ struct null_atomic_int
 
 } // namespace details
 } // namespace spdlog
+
+#ifdef YGG_PLATFORM_WINDOWS
+#pragma warning(pop)
+#endif
