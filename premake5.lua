@@ -2,7 +2,7 @@ project "Spdlog"
 
   kind "SharedLib"
   language "C++"
-  cppdialect "C++11"
+  cppdialect "C++20"
 
   targetdir ("../../bin/" .. outputdir .. "/%{prj.name}")
   objdir ("../../obj/" .. outputdir .. "/%{prj.name}")
